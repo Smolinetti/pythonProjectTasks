@@ -15,9 +15,8 @@
 #
 # print("Сформирован список из случайных чисел: ", *list)
 # summ = 0
-# for i in range(size_massive):
-#     if list[i] % 2 != 0:
-#         summ += list[i]
+# for i in range(0, size_massive, 2):
+#     summ += list[i]
 #
 # print("Сумма нечетных чисел списка равна", summ)
 #
@@ -38,13 +37,15 @@
 #     list.append(random.randint(1, 10))
 # print("Сформирован список из случайных чисел: ", *list)
 #
-# count = size_massive/2
-# if count % 2 != 0:
-#     count = round(count + 0.5)
-#
 # new_summ = 0
+# listlenght = 0
 #
-# for i in range(0, count):
+# if len(list) % 2 == 0:
+#     listlenght = len(list)
+# else:
+#     listlenght = len(list) + 1
+#
+# for i in range(listlenght//2):
 #     new_summ = list[i] * list[-i-1]
 #     print(f"{i+1} пара:", new_summ)
 #     i += 1
@@ -63,24 +64,39 @@
 print("\nЗадача №3 / Нахождение разницы между Max и Min")
 
 list = [1.1, 1.2, 3.1, 5, 10.01]
-print(list)
+print("Список из вещественных чисел:", list)
 
-maxx = list[0]
-print(maxx)
+float_list = []
 
-minn = list[-1]
-print(minn)
+for i in range(0, len(list)):
+    float_list.append(round(list[i]%1, 4))
 
-for i in range(list-1):
-    if list[i] >= maxx:
-        maxx = list[i]
-        print(maxx)
+maxx = 0
 
-    elif list[i] < minn:
-        print(minn)
-        minn = list[i]
+minn = float_list[0]
+
+for i in range(0, len(float_list)):
+    if float_list[i] > maxx:
+        maxx = float_list[i]
         i += 1
 
-print(maxx)
-print(minn)
+    elif float_list[i] < minn and   float_list[i] != 0:
+        minn = float_list[i]
+        i += 1
+
+diff = maxx - minn
+print("Максимально значение дробной части равно:", maxx)
+print("Минимальное значение дробной части равно:", minn)
+print("Разница между максимальным и минимальным значениями:", diff)
+
+
+# <Задание 4>
+# Напишите программу, которая будет преобразовывать десятичное число в двоичное.
+#
+# Пример:
+# 45 => 101101
+# 3 => 11
+# 2 => 10
+
+print("\nЗадача №3 / Нахождение разницы между Max и Min")
 
