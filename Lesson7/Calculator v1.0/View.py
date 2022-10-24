@@ -16,7 +16,7 @@ def division_by_zero():
 
 def print_window(result):
     win = tk.Tk()
-    win.geometry('300x300+600+600')
+    win.geometry('300x300+300+200')
     my_label = tk.Label(win, text=result)
     my_label.pack()
     win.mainloop()
